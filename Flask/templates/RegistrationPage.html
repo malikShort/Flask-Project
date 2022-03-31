@@ -1,16 +1,22 @@
 
 <form class = form1 action = "http://localhost:5000/register" method = "POST">
 <div>
+<p>Username</p>
 <input type="text" id="RUsername" name ='unR'>
 </div>
 <div>
+    <p>email</p>
     <input type="text" id="REmail" name="eml">
 </div>
 <div>
+    <p>name</p>
     <input type="text" id="RName" name ='nme'>
 </div>
 
 <div>
+<p>Password</p>
 <input type="text" id="RPassword" name = 'pwR'>
 </div>
+<p><button type="submit" value = 'submit'>Submit</button></p>
+<p>{{error}}</p>
 </form>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+<link rel="stylesheet" href="BicyclePage.css">
+    
+
+<div id="bicycleContent">
+       
+
+
+    <div class="Product">
+        
+        <img src="../bycicle store/images/actual-waterBike.webp" alt="" class="img">
+        <div class="ObjDSC"><p>Actual Water Bike</p></div>
+        <div class="ObjDSC" ><p>12.99</p></div>
+        <button class="btn1"> Buy </button>
+    </div>
+
+    <div class="Product">
+        <img src="../bycicle store/images/black.jpg" alt="" class="img">
+        <div class="ObjDSC"><p>Black bike</p></div>
+        <div class="ObjDSC"><p>12.99</p></div>
+        <button class="btn2"> Buy </button>
+    </div>
+
+
+    <div class="Product">
+        <img src="../bycicle store/images/download.jpg" alt="" class="img">
+        <div class="ObjDSC"><p> Spider Bike </p></div>
+        <div class="ObjDSC"><p>12.99</p></div>
+        <button class="btn3"> Buy </button>
+    </div>
+
+    <div class="Product">
+        <img src="../bycicle store/images/images.jpg" alt="" class="img">
+        <div class="ObjDSC"><p> Blue bike </p></div>
+        <div class="ObjDSC"><p>12.99</p></div>
+        <button class="btn4"> Buy </button>
+    </div>
+
+    <div class="Product">
+        <img src="../bycicle store/images/leanBike.jpg" alt="" class="img">
+        <div class="ObjDSC"><p> Bike+ </p></div>
+        <div class="ObjDSC"><p>12.99</p></div>
+        <button class="btn5"> Buy </button>
+    </div>
+
+    <div class="Product">
+        <img src="../bycicle store/images/motorBike.jpg" alt="" class="img">
+        <div class="ObjDSC"><p> Motor Bike </p></div>
+        <div class="ObjDSC"><p>12.99</p></div>
+        <button class="btn6"> Buy </button>
+    </div>
+
+    <div class="Product">
+        <img src="../bycicle store/images/sleekBike.jpg" alt="" class="img">
+        <div class="ObjDSC"><p>  Geometric bike </p></div>
+        <div class="ObjDSC"><p>12.99</p></div>
+        <button class="btn7"> Buy </button>
+    </div>
+
+    <div class="Product">
+        <img src="../bycicle store/images/waterM-bike.jpg" alt="" class="img">
+        <div class="ObjDSC"><p>  Water bike  </p></div>
+        <div class="ObjDSC"><p>12.99</p></div>
+        <button class="btn8"> Buy </button>
+    </div>
+
+    <div class="Product">
+        <img src="../bycicle store/images/wierdbike.jpg" alt="" class="img">
+        <div class="ObjDSC"><p> steam bike </p></div>
+        <div class="ObjDSC"><p>12.99</p></div>
+        <button class="btn9"> Buy </button>
+    </div>
+ 
+    <div class="Product">
+        <img src="../bycicle store/images/woodBike.jpg" alt="" class="img">
+        <div class="ObjDSC"><p> wood bike </p></div>
+        <div class="ObjDSC"><p>12.99</p></div>
+        <button class="btn10"> Buy </button>
+        
+    </div>
+
+</div>
+
+</div>
+
+<script>
+    $(document).ready(function(){
+    $('.btn1').on('click', function(e){
+        e.preventDefault()
+        $.get('/bike1Code',
+        function(data){
+        });
+        return false;
+    })
+    $('.btn2').on('click', function(e){
+        e.preventDefault()
+        $.get('/bike2Code',
+        function(data){
+        });
+        return false;
+    })
+    $('.btn3').on('click', function(e){
+        e.preventDefault()
+        $.get('/bike3Code',
+        function(data){
+        });
+        return false;
+    })
+    $('.btn4').on('click', function(e){
+        e.preventDefault()
+        $.get('/bike4Code',
+        function(data){
+        });
+        return false;
+    })
+    $('.btn5').on('click', function(e){
+        e.preventDefault()
+        $.get('/bike5Code',
+        function(data){
+        });
+        return false;
+    })
+    $('.btn6').on('click', function(e){
+        e.preventDefault()
+        $.get('/bike6Code',
+        function(data){
+        });
+        return false;
+    })
+    $('.btn7').on('click', function(e){
+        e.preventDefault()
+        $.get('/bike7Code',
+        function(data){
+        });
+        return false;
+    })
+    $('.btn8').on('click', function(e){
+        e.preventDefault()
+        $.get('/bike8Code',
+        function(data){
+        });
+        return false;
+    })
+    $('.btn9').on('click', function(e){
+        e.preventDefault()
+        $.get('/bike9Code',
+        function(data){
+        });
+        return false;
+    })
+    $('.btn10').on('click', function(e){
+        e.preventDefault()
+        $.get('/bike10Code',
+        function(data){
+        });
+        return false;
+    })
+})
+</script>
+</body>
+</html>
