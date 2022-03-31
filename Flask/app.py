@@ -29,15 +29,15 @@ print(users)
 conn.close()
 cur.close()
 
-@app.Route('/main/<id>')
+@app.route('/main/<id>')
 def main():
     return render_template('')
 
-@app.Route("/login/<error> = ''")
+@app.route("/login/<error> = ''")
 def loginPath(error = ''):
     return render_template('login.html',error = error)
 
-@app.Route("/login",methods=['POST', 'GET'])
+@app.route("/login",methods=['POST', 'GET'])
 def loginFunc():
 
     conn = connect()
@@ -71,10 +71,10 @@ def loginFunc():
                 return redirect(url_for('main'),id = i[0])
             return redirect(url_for('login'),error = 'Incorrect username or password')
         
-@app.Route('/register/<error> = ''')
+@app.route('/register/<error> = ''')
 def register(error):
     return render_template('RegistrationPage.html',error = error)
-@app.Route('/register')
+@app.route('/register')
 def register():
 
     conn = connect()
@@ -94,7 +94,7 @@ def register():
     if request.method == 'POST':
         eml = request.form['eml']
         nme = request.form['nme']
-        usr = request.form['nm']
+        usr = request.form['unR']
         upswrd = request.form['pw']
         for i in users:
             if i[3] == usr and i[4] == upswrd:
