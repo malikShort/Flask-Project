@@ -3,7 +3,10 @@
 <header>
     <link rel="stylesheet" href="Flask/static/login.css">
 </header>
+<body>
     <h1>Login</h1>
+        <form class = form1 action = "http://localhost:5000/login" method = "POST">
+
         <div>
             <label for="RUsername">Username: </label>
             <input type="text" id="RUsername" name ='nm'>
@@ -23,5 +26,9 @@
             <label for="RPassword">Password: </label>
         <input type="text" id="RPassword" name = 'pwR'>
         </div>
+
+    </form>
+</body>
+
 
 </html>
