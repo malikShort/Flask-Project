@@ -1,0 +1,54 @@
+body{
+   background-image: url('../bycicle store/images/stone.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+  
+}
+
+#bicycleContent{
+   
+  
+   display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 10%;
+
+  justify-content: space-evenly;
+}
+
+.btn{
+   padding: 5%;
+}
+
+
+.img{
+   width: 255px;
+   height: 350px;
+   
+}
+
+.ObjDSC{
+  
+}
+
+.product{
+   border: 8px solid black;
+   margin: 5%;
+   border-radius: 5px;
+   
+}
+
+.Ptxt{
+   display: flex;
+  
+   padding-left: 10%;
+   justify-content: space-evenly;
+   background-image: url('../bycicle store/images/BtnStone.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+  
+}
+
+.price{
+
+}
