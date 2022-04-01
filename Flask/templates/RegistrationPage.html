@@ -1,27 +1,99 @@
 
+
+
+
+
 <form class = form1 action = "http://localhost:5000/register" method = "POST">
-    <h1>Register</h1>
-        <div>
-            <label for="RUsername">Username: </label>
-            <input type="text" id="RUsername" name ='unR'>
+   <head>
+       <style>
+      
+      #inputsField{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 5px solid black;
+    border-radius: 25px;
+    width:750px;
+    height:500px;
+    background-color: rgb(29, 125, 221);
+    margin: auto;
+}
+
+
+
+body{
+  
+  background-image: url('../static/img/registration.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+  #error{
+ 
+  }
+
+
+
+#txt{
+   margin-bottom: 5%;
+   margin-left: 35%;
+}
+
+#IP{
+  margin: auto;
+   
+}
+
+.inputs{
+    margin: 2%;
+    margin-left: 35%;
+}
+
+#txt{
+  display: flex;
+  flex-direction: column;
+  padding-left: 2%;
+}
+
+#btn{
+padding-left: 5%;
+}
+
+       </style>
+   </head>
+   
+   <body>
+    
+    <div id = "inputsField">
+
+       <div id="txt"> 
+        <h1>Register</h1>
+        </div>
+
+        <div class="inputs">
+           
+            <input type="text" id="RUsername" name ='unR' placeholder="Put username here">
         </div>
         
-        <div>
-            <label for="REmail">Email: </label>
-            <input type="text" id="REmail" name="eml">
+        <div class="inputs">
+            
+            <input type="text" id="REmail" name="eml" placeholder="Put password here">
         </div>
         
-        <div>
-            <label for="RName">Name: </label>
-            <input type="text" id="RName" name ='nme'>
+        <div class="inputs">
+            
+            <input type="text" id="RName" name ='nme'  placeholder="Put Name here">
         </div>
     
-        <div>
-            <label for="RPassword">Password: </label>
-        <input type="text" id="RPassword" name = 'pwR'>
+        <div class="inputs">
+            
+        <input type="text" id="RPassword" name = 'pwR'  placeholder="Put Password here">
         </div>
 
 
-<p><button type="submit" value = 'submit'>Submit</button></p>
-<p>{{error}}</p>
+<p class="inputs" id="btn"><button type="submit" value = 'submit'>Register</button></p>
+<p class='inputs' id="btn">:{{error}}</p>
+
+</div>
 </form>
+</body>

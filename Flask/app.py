@@ -83,8 +83,8 @@ def register():
 
 @app.route('/register/<error>')
 def registerErr(error):
-    print(error)
     return render_template('RegistrationPage.html',error = error)
+
 @app.route('/register',methods=['POST', 'GET'])
 def registering():
     conn = connect()
@@ -108,11 +108,10 @@ def registering():
         for i in users:
             if i[3] == usr:
                 print(i[3],i[4])
-                return redirect(url_for('register',error = 'User already Exists'))
+                return render_template('RegistrationPage.html',error = 'User already Exists')
 
         conn = connect()
         cur = conn.cursor()
-        #cur.execute(f'INSERT INTO str_usrs  (name,email,usernm,password) VALUES ("{nme}","{eml}","{usr}","{upswrd}") ')
         cur.execute('INSERT INTO str_usrs (name,email,usernm,password)'
             'VALUES(%s,%s,%s,%s)',
             (f"{nme}",f"{eml}",f"{usr}",f"{upswrd}"))
@@ -130,7 +129,7 @@ def registering():
         for i in users:
             if i[3] == usr:
                 print(i[3],i[4])
-                return redirect(url_for('register',error = 'User Already Exists'))
+                return render_template('RegistrationPage.html',error = 'User already Exists')
         conn = connect()
         cur = conn.cursor()
         cur.execute(f'INSERT INTO str_usrs  (name,email,usernm,password) VALUES ("{nme}","{eml}","{usr}","{upswrd}") ')
@@ -167,7 +166,7 @@ def bike1():
     conn.close()
     print(bike)
     print('success1')
-    return 'nothing'
+    return redirect(url_for('loginFunc'))
 
 @app.route('/bike2Code')
 def bike2():
@@ -194,7 +193,7 @@ def bike2():
     conn.close()
     print(bike)
     print('success1')
-    return 'nothing'
+    return redirect(url_for('loginFunc'))
 
 @app.route('/bike3Code')
 def bike3():
@@ -221,7 +220,7 @@ def bike3():
     conn.close()
     print(bike)
     print('success1')
-    return 'nothing'
+    return redirect(url_for('loginFunc'))
 
 @app.route('/bike4Code')
 def bike4():
@@ -248,7 +247,8 @@ def bike4():
     conn.close()
     print(bike)
     print('success1')
-    return 'nothing'
+    return redirect(url_for('loginFunc'))
+
 
 @app.route('/bike5Code')
 def bike5():
@@ -275,7 +275,8 @@ def bike5():
     conn.close()
     print(bike)
     print('success1')
-    return 'nothing'
+    return redirect(url_for('loginFunc'))
+
 
 @app.route('/bike6Code')
 def bike6():
@@ -302,7 +303,8 @@ def bike6():
     conn.close()
     print(bike)
     print('success1')
-    return 'nothing'
+    return redirect(url_for('loginFunc'))
+
 
 @app.route('/bike7Code')
 def bike7():
@@ -329,7 +331,8 @@ def bike7():
     conn.close()
     print(bike)
     print('success1')
-    return 'nothing'
+    return redirect(url_for('loginFunc'))
+
 
 @app.route('/bike8Code')
 def bike8():
@@ -356,7 +359,7 @@ def bike8():
     conn.close()
     print(bike)
     print('success1')
-    return 'nothing'
+    return redirect(url_for('loginFunc'))
 
 @app.route('/bike9Code')
 def bike9():
@@ -383,7 +386,8 @@ def bike9():
     conn.close()
     print(bike)
     print('success1')
-    return 'nothing'
+    return redirect(url_for('loginFunc'))
+
 
 @app.route('/bike10Code')
 def bike10():
@@ -410,4 +414,4 @@ def bike10():
     conn.close()
     print(bike)
     print('success1')
-    return 'nothing'
+    return redirect(url_for('loginFunc'))
