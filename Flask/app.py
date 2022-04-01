@@ -36,8 +36,8 @@ def main(id):
 def loginPath():
     return render_template('Login.html')
 
-@app.route("/login/<error> = ''")
-def loginErr(error = ''):
+@app.route("/login/<error>")
+def loginErr(error):
     return render_template('Login.html',error = error)
 
 @app.route("/login",methods=['POST', 'GET'])
@@ -65,7 +65,7 @@ def loginFunc():
                 global userID
                 userID = i[0]
                 return redirect(url_for('main',id = i[0]))
-        return redirect(url_for('login',error = 'Incorrect username or password'))
+        return redirect(url_for('loginErr',error = 'Incorrect username or password'))
 
     else:
         usr = request.args.get('nm')
@@ -75,19 +75,18 @@ def loginFunc():
                 print(i[3],i[4])
                 userID = i[0]
                 return redirect(url_for('main',id = i[0]))
-        return redirect(url_for('login',error = 'Incorrect username or password'))
+        return redirect(url_for('loginErr',error = 'Incorrect username or password'))
         
 @app.route('/register')
 def register():
     return render_template('RegistrationPage.html')
-@app.route('/register/<error>')
 
+@app.route('/register/<error>')
 def registerErr(error):
     print(error)
     return render_template('RegistrationPage.html',error = error)
 @app.route('/register',methods=['POST', 'GET'])
 def registering():
-
     conn = connect()
     cur = conn.cursor()
     cur.execute('SELECT * FROM str_usrs')
