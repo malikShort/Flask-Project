@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
 import psycopg2
-userID = int()
+
 app = Flask(__name__)
 
 print('connecting to database')
@@ -32,20 +32,24 @@ cur.close()
 def main(id):
     return render_template('BicyclePage.html',id = id)
 
-@app.route("/login/")
-def loginPath(error = ''):
+@app.route("/login")
+def loginPath():
+    return render_template('Login.html')
+
+@app.route("/login/<error> = ''")
+def loginErr(error = ''):
     return render_template('Login.html',error = error)
-@app.route("/login/<error>")
-def loginErr(error):
-    return render_template('Login.html',error = error)
+
 @app.route("/login",methods=['POST', 'GET'])
 def loginFunc():
+
     conn = connect()
     cur = conn.cursor()
     cur.execute('SELECT * FROM str_usrs')
     tempusers = cur.fetchall()
     print(tempusers)
     users = []
+
     for i in tempusers:
         users.append([i[0],i[1],i[2],i[3],i[4],i[5],i[6]])
     print(users)
@@ -58,9 +62,10 @@ def loginFunc():
         for i in users:
             if i[3] == usr and i[4] == upswrd:
                 print(i[3],i[4])
+                global userID
                 userID = i[0]
                 return redirect(url_for('main',id = i[0]))
-            return redirect(url_for('login',error = 'Incorrect username or password'))
+        return redirect(url_for('login',error = 'Incorrect username or password'))
 
     else:
         usr = request.args.get('nm')
@@ -70,7 +75,7 @@ def loginFunc():
                 print(i[3],i[4])
                 userID = i[0]
                 return redirect(url_for('main',id = i[0]))
-            return redirect(url_for('login',error = 'Incorrect username or password'))
+        return redirect(url_for('login',error = 'Incorrect username or password'))
         
 @app.route('/register')
 def register():
@@ -115,8 +120,7 @@ def registering():
         conn.commit()
         cur.close()
         conn.close()
-        userID = i[0]
-        return redirect(url_for('main',id = i[0]))
+        return redirect(url_for('login'))
         
 
     else:
@@ -137,7 +141,7 @@ def registering():
         print(id)
         cur.close()
         conn.close()
-        return redirect(url_for('main'),id = i[0])
+        return redirect(url_for('login'))
 
 @app.route('/bike1Code')
 def bike1():
@@ -149,9 +153,11 @@ def bike1():
     print(bike[1])
     cur.execute("""UPDATE str_usrs 
     SET bcylenmn = %s
-    WHERE id = %s""",(bike[1],userID))
-    conn.commit()
-    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",(bike[2],userID))
+    WHERE id = %s""",
+    (bike[1],userID))
+    print(bike[1],userID)
+    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",
+    (bike[2],userID))
     conn.commit()
 
     cur.execute('SELECT * FROM str_usrs')
@@ -166,45 +172,243 @@ def bike1():
 
 @app.route('/bike2Code')
 def bike2():
-    print('success2')
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM bikestock WHERE id = 2')
+    bike = cur.fetchall()
+    bike = bike[0]
+    print(bike[1])
+    cur.execute("""UPDATE str_usrs 
+    SET bcylenmn = %s
+    WHERE id = %s""",
+    (bike[1],userID))
+    print(bike[1],userID)
+    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",
+    (bike[2],userID))
+    conn.commit()
+
+    cur.execute('SELECT * FROM str_usrs')
+    test = cur.fetchall()
+    print(test)
+    
+    cur.close()
+    conn.close()
+    print(bike)
+    print('success1')
     return 'nothing'
 
 @app.route('/bike3Code')
 def bike3():
-    print('success3')
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM bikestock WHERE id = 3')
+    bike = cur.fetchall()
+    bike = bike[0]
+    print(bike[1])
+    cur.execute("""UPDATE str_usrs 
+    SET bcylenmn = %s
+    WHERE id = %s""",
+    (bike[1],userID))
+    print(bike[1],userID)
+    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",
+    (bike[2],userID))
+    conn.commit()
+
+    cur.execute('SELECT * FROM str_usrs')
+    test = cur.fetchall()
+    print(test)
+    
+    cur.close()
+    conn.close()
+    print(bike)
+    print('success1')
     return 'nothing'
 
 @app.route('/bike4Code')
 def bike4():
-    print('success4')
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM bikestock WHERE id = 4')
+    bike = cur.fetchall()
+    bike = bike[0]
+    print(bike[1])
+    cur.execute("""UPDATE str_usrs 
+    SET bcylenmn = %s
+    WHERE id = %s""",
+    (bike[1],userID))
+    print(bike[1],userID)
+    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",
+    (bike[2],userID))
+    conn.commit()
+
+    cur.execute('SELECT * FROM str_usrs')
+    test = cur.fetchall()
+    print(test)
+    
+    cur.close()
+    conn.close()
+    print(bike)
+    print('success1')
     return 'nothing'
 
 @app.route('/bike5Code')
 def bike5():
-    print('success5')
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM bikestock WHERE id = 5')
+    bike = cur.fetchall()
+    bike = bike[0]
+    print(bike[1])
+    cur.execute("""UPDATE str_usrs 
+    SET bcylenmn = %s
+    WHERE id = %s""",
+    (bike[1],userID))
+    print(bike[1],userID)
+    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",
+    (bike[2],userID))
+    conn.commit()
+
+    cur.execute('SELECT * FROM str_usrs')
+    test = cur.fetchall()
+    print(test)
+    
+    cur.close()
+    conn.close()
+    print(bike)
+    print('success1')
     return 'nothing'
 
 @app.route('/bike6Code')
 def bike6():
-    print('success6')
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM bikestock WHERE id = 6')
+    bike = cur.fetchall()
+    bike = bike[0]
+    print(bike[1])
+    cur.execute("""UPDATE str_usrs 
+    SET bcylenmn = %s
+    WHERE id = %s""",
+    (bike[1],userID))
+    print(bike[1],userID)
+    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",
+    (bike[2],userID))
+    conn.commit()
+
+    cur.execute('SELECT * FROM str_usrs')
+    test = cur.fetchall()
+    print(test)
+    
+    cur.close()
+    conn.close()
+    print(bike)
+    print('success1')
     return 'nothing'
 
 @app.route('/bike7Code')
 def bike7():
-    print('success7')
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM bikestock WHERE id = 7')
+    bike = cur.fetchall()
+    bike = bike[0]
+    print(bike[1])
+    cur.execute("""UPDATE str_usrs 
+    SET bcylenmn = %s
+    WHERE id = %s""",
+    (bike[1],userID))
+    print(bike[1],userID)
+    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",
+    (bike[2],userID))
+    conn.commit()
+
+    cur.execute('SELECT * FROM str_usrs')
+    test = cur.fetchall()
+    print(test)
+    
+    cur.close()
+    conn.close()
+    print(bike)
+    print('success1')
     return 'nothing'
 
 @app.route('/bike8Code')
 def bike8():
-    print('success8')
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM bikestock WHERE id = 8')
+    bike = cur.fetchall()
+    bike = bike[0]
+    print(bike[1])
+    cur.execute("""UPDATE str_usrs 
+    SET bcylenmn = %s
+    WHERE id = %s""",
+    (bike[1],userID))
+    print(bike[1],userID)
+    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",
+    (bike[2],userID))
+    conn.commit()
+
+    cur.execute('SELECT * FROM str_usrs')
+    test = cur.fetchall()
+    print(test)
+    
+    cur.close()
+    conn.close()
+    print(bike)
+    print('success1')
     return 'nothing'
 
 @app.route('/bike9Code')
 def bike9():
-    print('success9')
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM bikestock WHERE id = 9')
+    bike = cur.fetchall()
+    bike = bike[0]
+    print(bike[1])
+    cur.execute("""UPDATE str_usrs 
+    SET bcylenmn = %s
+    WHERE id = %s""",
+    (bike[1],userID))
+    print(bike[1],userID)
+    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",
+    (bike[2],userID))
+    conn.commit()
+
+    cur.execute('SELECT * FROM str_usrs')
+    test = cur.fetchall()
+    print(test)
+    
+    cur.close()
+    conn.close()
+    print(bike)
+    print('success1')
     return 'nothing'
 
 @app.route('/bike10Code')
 def bike10():
-    print('success20')
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM bikestock WHERE id = 10')
+    bike = cur.fetchall()
+    bike = bike[0]
+    print(bike[1])
+    cur.execute("""UPDATE str_usrs 
+    SET bcylenmn = %s
+    WHERE id = %s""",
+    (bike[1],userID))
+    print(bike[1],userID)
+    cur.execute("UPDATE str_usrs SET bycleprc = %sWHERE id = %s ",
+    (bike[2],userID))
+    conn.commit()
+
+    cur.execute('SELECT * FROM str_usrs')
+    test = cur.fetchall()
+    print(test)
+    
+    cur.close()
+    conn.close()
+    print(bike)
+    print('success1')
     return 'nothing'
