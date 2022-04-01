@@ -1,27 +1,34 @@
-
-<form class = form1 action = "http://localhost:5000/register" method = "POST">
-    <h1>Register</h1>
-        <div>
-            <label for="RUsername">Username: </label>
-            <input type="text" id="RUsername" name ='nm'>
-        </div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/RegistrationPage.css')}}"
+    </head>
+    <body>
+        <form class = form1 action = "http://localhost:5000/register" method = "POST">
+            <h1>Register</h1>
+                <div>
+                    <label for="RUsername">Username: </label>
+                    <input type="text" id="RUsername" name ='nm'>
+                </div>
+                
+                <div>
+                    <label for="REmail">Email: </label>
+                    <input type="text" id="REmail" name="eml">
+                </div>
+                
+                <div>
+                    <label for="RName">Name: </label>
+                    <input type="text" id="RName" name ='nme'>
+                </div>
+            
+                <div>
+                    <label for="RPassword">Password: </label>
+                <input type="text" id="RPassword" name = 'pwR'>
+                </div>
         
-        <div>
-            <label for="REmail">Email: </label>
-            <input type="text" id="REmail" name="eml">
-        </div>
         
-        <div>
-            <label for="RName">Name: </label>
-            <input type="text" id="RName" name ='nme'>
-        </div>
-    
-        <div>
-            <label for="RPassword">Password: </label>
-        <input type="text" id="RPassword" name = 'pwR'>
-        </div>
-
-
-<p><button type="submit" value = 'submit'>Submit</button></p>
-<p>{{error}}</p>
-</form>
+        <p><button type="submit" value = 'submit'>Submit</button></p>
+        <p>{{error}}</p>
+        </form>
+    </body>
+</html>
